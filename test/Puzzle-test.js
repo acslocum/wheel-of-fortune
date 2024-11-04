@@ -17,9 +17,7 @@ describe('Puzzle', () => {
   beforeEach(() => {
     puzzle = new Puzzle({  
       category: 'Around The House',
-      number_of_words: 1,
       total_number_of_letters: 8,
-      first_word: 8,
       description: 'Location or object(s) found within a typical house.',
       correct_answer: 'Armchair',
     });
@@ -28,7 +26,6 @@ describe('Puzzle', () => {
   it('should keep track of the current puzzle', () => {
     expect(puzzle.currentPuzzle).to.deep.equal({  
       category: 'Around The House',
-      number_of_words: 1,
       total_number_of_letters: 8,
       first_word: 8, 
       description: 'Location or object(s) found within a typical house.',

@@ -17,25 +17,19 @@ describe('Round Class', () => {
     round1 = new Round([
       {  
         category: 'Around The House',
-        number_of_words: 1,
         total_number_of_letters: 8,
-        first_word: 8, 
         description: 'Location or object(s) found within a typical house.',
         correct_answer: 'Armchair',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 7,
-        first_word: 7, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Beepers',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 10,
-        first_word: 10, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Tamagotchi',
       }], data.wheel);
@@ -45,25 +39,19 @@ describe('Round Class', () => {
     expect(round1.puzzleBank).to.deep.equal([
       {  
         category: 'Around The House',
-        number_of_words: 1,
         total_number_of_letters: 8,
-        first_word: 8, 
         description: 'Location or object(s) found within a typical house.',
         correct_answer: 'Armchair',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 7,
-        first_word: 7, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Beepers',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 10,
-        first_word: 10, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Tamagotchi',
       }]);
@@ -73,9 +61,7 @@ describe('Round Class', () => {
     round1 = new Round([
       {  
         category: 'Around The House',
-        number_of_words: 1,
         total_number_of_letters: 8,
-        first_word: 8, 
         description: 'Location or object(s) found within a typical house.',
         correct_answer: 'Armchair',
       }]);
@@ -121,25 +107,19 @@ describe('Bonus Round Class', () => {
     bonusRound1 = new BonusRound([
       {  
         category: 'Around The House',
-        number_of_words: 1,
         total_number_of_letters: 8,
-        first_word: 8, 
         description: 'Location or object(s) found within a typical house.',
         correct_answer: 'Armchair',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 7,
-        first_word: 7, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Beepers',
       },
       {  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 10,
-        first_word: 10, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Tamagotchi',
       }], data.bonusWheel)
@@ -149,9 +129,7 @@ describe('Bonus Round Class', () => {
     bonusRound1.generateBonusPuzzle = () => {
       return new Puzzle({  
         category: 'The 90s',
-        number_of_words: 1,
         total_number_of_letters: 7,
-        first_word: 7, 
         description: 'Puzzles pertaining to the decade in question.',
         correct_answer: 'Beepers',
       });
@@ -175,9 +153,7 @@ describe('Bonus Round Class', () => {
     let puzzle = bonusRound1.generateBonusPuzzle();
     expect(puzzle.currentPuzzle).to.deep.equal({  
       category: 'The 90s',
-      number_of_words: 1,
       total_number_of_letters: 7,
-      first_word: 7, 
       description: 'Puzzles pertaining to the decade in question.',
       correct_answer: 'Beepers',
     });
