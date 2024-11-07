@@ -23,6 +23,7 @@ server.on('request', (req, res) => {
         ];
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Keep-Alive', 'timeout=0');
         res.end(JSON.stringify(scores));
     } else {
         res.statusCode = 404;
