@@ -79,7 +79,7 @@ header div {
 }
 
 .game-winner {
-  animation: shimmer 1.7s ease infinite;
+  animation: shimmer 5s ease infinite;
 }
 
 @keyframes shimmer {
@@ -597,7 +597,7 @@ h2 {
 }
 
 .yell-active {
-  animation: yell 2s ease;
+  animation: yell 5s ease;
 }
 
 @keyframes yell {

@@ -1,4 +1,3 @@
-import Player from './Player.js';
 
 const domUpdates = {
 
@@ -12,30 +11,30 @@ const domUpdates = {
 
   getPlayerOne() {
     if ($('.player1-name').val()) {
-      var playerOne = new Player($('.player1-name').val());
+      var playerOne = $('.player1-name').val();
       $('.player1-ba').text(`${$('.player1-name').val()}: $`);
     } else {
-      var playerOne = new Player('Player 1');
+      var playerOne = 'Player 1';
     }
     return playerOne;
   },
   
   getPlayerTwo() {
     if ($('.player2-name').val()) {
-      var playerTwo = new Player($('.player2-name').val());
+      var playerTwo = $('.player2-name').val();
       $('.player2-ba').text(`${$('.player2-name').val()}: $`);
     } else {
-      var playerTwo = new Player('Player 2');
+      var playerTwo = 'Player 2';
     }
     return playerTwo;
   },
   
   getPlayerThree() {
     if ($('.player3-name').val()) {
-      var playerThree = new Player($('.player3-name').val());
+      var playerThree = $('.player3-name').val();
       $('.player3-ba').text(`${$('.player3-name').val()}: $`);
     } else {
-      var playerThree = new Player('Player 3');
+      var playerThree = 'Player 3';
     }
     return playerThree;
   },
@@ -102,8 +101,8 @@ const domUpdates = {
 
   populatePuzzleSquares(puzzle) {
     let letterBoxArray = Array.from($('.letter-content'));
-    let revealSound = new Audio('./audio/reveal.mp3');
-    revealSound.play();
+    //let revealSound = new Audio('./audio/reveal.mp3');
+    //revealSound.play();
     puzzle.forEach((letter, i) => {
       if (letter === '-' || letter === '&' || letter === '\'') {
         $(letterBoxArray[i]).text(letter);
@@ -222,8 +221,15 @@ const domUpdates = {
     $('.winning-score').text(player.wallet);
   },
 
-  updateCurrentSpin(value) {
-    $('.spin-number').text(value)
+  updateCurrentSpin() {
+    var spin = $('.spin-number').val()
+    var dollarValue = parseInt(spin)
+    return dollarValue;
+  },
+
+  setCurrentSpin(value) {
+    var element = $('.spin-number');
+    element.val(value);
   },
 
   yellCurrentSpin(value) {
@@ -270,8 +276,13 @@ const domUpdates = {
     $('.solve-popup').css('display', 'none');
   },
 
-  updateBankAccts(winner, i) {
-    $(`.player${i + 1}-ba-num`).text(winner.bankAcct);
+  updateBankAccts(players) {
+    $('.player1-ba').text(`${players[0].name}: $`);
+    $('.player1-ba-num').text(players[0].bankAcct);
+    $('.player2-ba').text(`${players[1].name}: $`);
+    $('.player2-ba-num').text(players[1].bankAcct);
+    $('.player3-ba').text(`${players[2].name}: $`);
+    $('.player3-ba-num').text(players[2].bankAcct);
   },
 
   clearBankAccts() {
@@ -309,18 +320,18 @@ const domUpdates = {
       `<header>
         <div class="on-deck">
           <h2 class="on-deck-name">player 2</h2>
-          <h2 class="on-deck-score">2,000</h2>
+          <h2 class="on-deck-score">0</h2>
         </div>
         <div class="at-bat">
           <h2 class="game-winner">player 1</h2>
-          <h2 class="winning-score">2,000</h2>
+          <h2 class="winning-score">0</h2>
           <button class="spin-button top-buttons">SPIN</button>
           <button class="solve-button top-buttons">SOLVE</button>
           <button class="vowel-button top-buttons">VOWEL</button>
         </div>
         <div class="in-the-hole">
           <h2 class="in-the-hole-name">player 3</h2>
-          <h2 class="in-the-hole-score">2,000</h2>
+          <h2 class="in-the-hole-score">0</h2>
         </div>
       </header>`);
   },

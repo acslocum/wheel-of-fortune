@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "a web based playable wheel of fortune game",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "lint": "eslint ./",

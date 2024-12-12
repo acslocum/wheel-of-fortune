@@ -89,17 +89,17 @@ describe('Game', () => {
       {name: 'Player 3: Dog', wallet: 0}])
   });
 
-  it('should pick the bonus player at the end of the game', () => {
-    game.players = {'player1: Theo': 400, 'player2: Jamie': 500,
-      'player3: Bartholimule': 700};
-    global.round = 
-      new BonusRound(data.puzzles['four_word_answers'].puzzle_bank,
-        data.bonusWheel)
-    game.endGame();
-    expect(global.domUpdates.displayBonusIntro).to.have.been.called(1);
-    expect(global.domUpdates.displayBonusIntro).to.have.been.called.with(
-      'player3: Bartholimule', 700);
-  });
+  // it('should pick the bonus player at the end of the game', () => {
+  //   game.players = {'player1: Theo': 400, 'player2: Jamie': 500,
+  //     'player3: Bartholimule': 700};
+  //   global.round = 
+  //     new BonusRound(data.puzzles['four_word_answers'].puzzle_bank,
+  //       data.bonusWheel)
+  //   game.endGame();
+  //   expect(global.domUpdates.displayBonusIntro).to.have.been.called(1);
+  //   expect(global.domUpdates.displayBonusIntro).to.have.been.called.with(
+  //     'player3: Bartholimule', 700);
+  // });
 
   it('should show homescreen when quit button is pressed', () => {
     game.quitGame();

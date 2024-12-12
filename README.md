@@ -29,3 +29,16 @@ Run `git clone https://github.com/b3an5/wheel-of-fortune.git` in your terminal t
   - https://github.com/jarushford
 - Link to [pair DTR](https://gist.github.com/jarushford/fa3d748f09c5e7d82bd9ec605d16f533)
 - Link to [original project spec](http://frontend.turing.io/projects/wheel-of-fortune.html)
+
+
+
+
+TODO
+/quitGame - dev complete
+new round player names - done
+reload to reset server - quit solves it??
+round number  - remove?
+vowel highlights ????
+non host view - done?
+bankrupt button
+lose a turn button

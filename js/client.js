@@ -1,5 +1,5 @@
-import Game from './Game.js';
 import domUpdates from './DOM.js';
+import Puzzle from './Puzzle.js';
 
 let buzzer = new Audio('./audio/Buzzer.mp3');
 let chooseSound = new Audio('./audio/choose.mp3');
@@ -9,14 +9,14 @@ let solveSound = new Audio('./audio/solve.mp3');
 let spinSound = new Audio('./audio/spin.mp3');
 let bankrupt = new Audio('./audio/bankr.mp3');
 
-let game = new Game();
+let game;
 let round;
 let puzzle;
-let wheel;
+//let wheel;
 
 $('.start-button').on('click', init);
 $('.quit').on('click', quitHandler);
-$('.spin-button').on('click', game.setUpWheel);
+$('.spin-button').on('click', spinHandler);
 $('.solve-button').on('click', domUpdates.displaySolvePopup);
 $('.solve-input-button').on('click', solveHandler);
 $('.spin-text').on('click', spinHandler);
@@ -36,46 +36,71 @@ function playLoopingAudio(audioObject)  {
 }
 
 function init() {
-  game.getPlayers();
-  newRoundHandler();
+  resetPlayers();
+  var names = domUpdates.getPlayerNames();
+  newRoundHandler(names);
   setTimeout(() => {
     playLoopingAudio(theme);
   }, 1000);
 }
 
-function newRoundHandler() {
-  round = game.startRound();
-  domUpdates.displayNames(game.players, game.playerIndex);
-  if (game.bonusRound) {
-    round.bonusPlayer = game.endGame();
-    puzzle = round.generateBonusPuzzle(game.lastPuzzle);
-    wheel = round.generateBonusWheel();
-    domUpdates.highlightVowels();
-  } else {
-    puzzle = round.generatePuzzle();
-    game.lastPuzzle = puzzle;
-    wheel = round.generateWheelValue();
-  }
+function get(url, data=null) {
+  let responseData;
+  $.ajax({
+    url: url,
+    async: false,
+    data: data,
+    success: function(response) {
+      responseData = response;
+    }
+  });
+  return responseData;
+}
+
+function resetPlayers() {
+  $.post('/resetPlayers');
+}
+
+function newRoundHandler(names) {
+  let data;
+  if(names !== undefined)
+    data = {'player1': names[0], 'player2': names[1], 'player3': names[2]};
+  game = get('/newRound', data);
+  updateNames(game);
+  puzzle = new Puzzle(game.lastPuzzle);
+  //wheel = round.generateWheelValue();
   setUpRound();
+}
+
+function updateNames(game) {
+  domUpdates.displayNames(game.players, game.playerIndex);
 }
 
 function setUpRound() {
   domUpdates.resetPuzzleSquares();
-  game.bonusRound ? puzzle.populateBonus(puzzle.puzzleLength) : 
-    puzzle.populateBoard();
+  puzzle.populateBoard();
   domUpdates.updateCategory(puzzle);
-  domUpdates.displayWheelValues(wheel);
   domUpdates.newRoundKeyboard();
+  domUpdates.clearInputs();
+  domUpdates.goToGameScreen();
+  domUpdates.enableLetters();
+  //domUpdates.displayWheel();
 }
 
 function quitHandler() {
   domUpdates.resetOnQuit();
-  game.quitGame();
+  get('/reset');
+}
+
+function spinHandler() {
+  var spinValue = domUpdates.updateCurrentSpin();
+  domUpdates.enableLetters();
+  game = get('/spin', { 'spinValue': spinValue });
 }
 
 function checkIfPuzzleSolved() {
   if (puzzle.completed) {
-    game.endRound();
+    endRound();
     domUpdates.yellCurrentSpin('CORRECT');
     chooseSound.pause();
     playLoopingAudio(theme);
@@ -101,7 +126,23 @@ function startBonusHandler() {
 function newGameHandler(e) {
   if ($(e.target).hasClass('new-game')) {
     domUpdates.resetGameDisplay();
-    game.quitGame();
+    get('/reset');
+  }
+}
+
+function endRound() {
+  game = get('/endRound');
+  let winner = game.players[game.playerIndex];
+  domUpdates.updateBankAccts(game.players);
+  domUpdates.displayWinner(winner.name, winner.wallet);
+}
+
+function endRoundBoard() {
+  game = get('/game');
+  let winner = game.players[game.playerIndex];
+  domUpdates.updateBankAccts(game.players);
+  if(game.winner !== null) {
+    domUpdates.displayWinner(winner.name, winner.wallet);
   }
 }
 
@@ -110,15 +151,13 @@ function solveHandler() {
   $('.solve-input').val('');
   let result = puzzle.solvePuzzle(guess);
   if (result) {
+    endRound();
     chooseSound.pause();
     playLoopingAudio(theme);
     solveSound.play();
-    game.bonusRound ? solveBonusHandler(result) : null;
-    game.endRound();
     setTimeout(newRoundHandler, 2500);
   } else {
     buzzer.play();
-    game.bonusRound ? solveBonusHandler(result) : null;
     game.endTurn();
   }
 };
@@ -132,7 +171,7 @@ function solveBonusHandler(result) {
     round.postBonusResult();
   }
 }
-
+/*
 function spinHandler() {
   spinSound.play();
   domUpdates.spinWheel();
@@ -143,6 +182,7 @@ function spinHandler() {
     badSpinHandler();
   }, 2000);
 }
+  */
 
 function badSpinHandler() {
   if (wheel.currentValue === 'LOSE A TURN') {
@@ -179,31 +219,80 @@ function vowelGuessHandler(currentGuess, currentTurn, e) {
   }
 }
 
-function guessActiveVowel(currentGuess, currentTurn, e) {
+function endTurn() {
+  game = get('/endTurn');
+  domUpdates.newPlayerTurn(game.players, game.playerIndex);
+  domUpdates.disableKeyboard();
+}
+
+function guessActiveVowel(currentGuess, currentTurnPlayer, e) {
+  game = get('/guessLetter',{ 'letter': currentGuess });
+  console.log(game);
   let isGuessCorrect = puzzle.checkGuess(currentGuess);
-  puzzle.checkIfVowelAvailable(currentGuess, currentTurn, e);
-  game.bonusRound ? domUpdates.enableLetters() : null;
+  puzzle.checkIfVowelAvailable(currentGuess, e);
+  updatePlayerWallet(currentTurnPlayer, -100, 1);
   if (isGuessCorrect) {
     checkIfPuzzleSolved();
     ding.play();
   } else {
-    game.endTurn();
+    endTurn();
     domUpdates.disableKeyboard();
     buzzer.play();
   }
 }
 
-function consonantGuessHandler(currentGuess, currentTurn, e) {
+function updatePlayerWallet(player, wheelValue, numCorrect) {
+  let data;
+  $.ajax({
+    url: '/updatePlayerWallet',
+    type: "GET",
+    async: false,
+    data: { 'playerIndex': player.index, 'wheelValue' : wheelValue, 'numCorrect': numCorrect },
+    success: function(response) {
+      data = response;
+    }
+  });
+  game = data;
+  domUpdates.updateWallet(game.players[player.index]);
+}
+
+function consonantGuessHandler(currentGuess, currentTurnPlayer, e) {
+  game = get('/guessLetter',{ 'letter': currentGuess });
+  console.log(game);
   let isGuessCorrect = puzzle.checkGuess(currentGuess);
   let isEnabled = puzzle.checkIfConsonantEnabled(e);
-  game.bonusRound ? game.clickCounter(round) : null;
   if (isEnabled && isGuessCorrect) {
+    var wheelCurrentValue = domUpdates.updateCurrentSpin();
     puzzle.countCorrectLetters(currentGuess);
-    currentTurn.guessCorrectLetter(puzzle.numberCorrect, wheel.currentValue);
+    updatePlayerWallet(currentTurnPlayer, wheelCurrentValue, puzzle.numberCorrect);
     checkIfPuzzleSolved();
     ding.play();
   } else if (isEnabled && !isGuessCorrect) {
-    game.endTurn();
+    endTurn();
     buzzer.play();
   }
 }
+
+function revealLetters(game) {
+  game.lettersGuessed.forEach((letter) => {
+    puzzle.countCorrectLetters(letter);
+  });
+}
+
+function newPlayerTurn(game) {
+  domUpdates.newPlayerTurn(game.players, game.playerIndex);
+}
+
+function populatePuzzleSquares(lastPuzzle) {
+  if(lastPuzzle === undefined || lastPuzzle.correct_answer === undefined) {
+    return;
+  }
+  puzzle = new Puzzle(lastPuzzle);
+  domUpdates.populatePuzzleSquares(lastPuzzle.correct_answer.split(''));
+}
+
+function updateCurrentSpin(game) {
+  domUpdates.setCurrentSpin(game.currentSpin);
+}
+
+export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard};

@@ -38,9 +38,8 @@ class Puzzle {
     return false;
   }
 
-  checkIfVowelAvailable(vowel, player, e) {
+  checkIfVowelAvailable(vowel, e) {
     if ($(e.target).hasClass('active-vowel')) {
-      player.buyVowel();
       domUpdates.disableGuessedVowel(e);
       this.countCorrectLetters(vowel);
     }
@@ -83,6 +82,5 @@ class Puzzle {
     }
   }
 }
-
 
 export default Puzzle;

@@ -1,6 +1,5 @@
-import data from './data.js';
-import Puzzle from './Puzzle.js';
-import Wheel from './Wheel.js';
+const data = require('./data.js');
+const Wheel = require('./Wheel.js');
 
 class Round {
   constructor(puzzleBank, wheelValue) {
@@ -10,7 +9,7 @@ class Round {
 
   generatePuzzle() {
     let randomIndex = Math.floor(Math.random() * this.puzzleBank.length);
-    return new Puzzle(this.puzzleBank[randomIndex]);
+    return this.puzzleBank[randomIndex];
   }
 
   generateWheelValue() {
@@ -23,5 +22,4 @@ class Round {
   }
 }
 
-
-export default Round;
+module.exports = Round;

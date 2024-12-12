@@ -12,7 +12,7 @@ describe('Player', () => {
   var player;
 
   beforeEach(() => {
-    player = new Player('John');
+    player = new Player('John',1);
   });
 
   it('should have a name', () => {

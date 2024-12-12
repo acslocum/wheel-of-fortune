@@ -1,4 +1,4 @@
-import domUpdates from './DOM.js';
+//const domUpdates = require('../DOM.js');
 
 class Wheel {
   constructor(spinValues) {
@@ -9,9 +9,7 @@ class Wheel {
   grabSpinValue() {
     let randomIndex = Math.floor(Math.random() * this.spinValues.length);
     this.currentValue = this.spinValues[randomIndex];
-    domUpdates.updateCurrentSpin(this.currentValue);
+    //domUpdates.updateCurrentSpin(this.currentValue);
   }
 }
 
-
-export default Wheel;
