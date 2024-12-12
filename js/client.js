@@ -21,6 +21,8 @@ $('.solve-button').on('click', domUpdates.displaySolvePopup);
 $('.solve-input-button').on('click', solveHandler);
 $('.spin-text').on('click', spinHandler);
 $('.vowel-button').on('click', vowelPurchaseHandler);
+$('.lose-a-turn-button').on('click', loseATurnHandler);
+$('.bankrupt-button').on('click', bankruptHandler);
 $('.start-bonus-round').on('click', startBonusHandler);
 $('.bonus-round-intro').on('click', newGameHandler);
 $('.keyboard-section').on('click', keyboardHandler);
@@ -76,15 +78,19 @@ function updateNames(game) {
   domUpdates.displayNames(game.players, game.playerIndex);
 }
 
+function updateCategory(puzzle) {
+  domUpdates.updateCategory(puzzle);
+}
+
 function setUpRound() {
   domUpdates.resetPuzzleSquares();
   puzzle.populateBoard();
-  domUpdates.updateCategory(puzzle);
+  updateCategory(game.lastPuzzle);
   domUpdates.newRoundKeyboard();
   domUpdates.clearInputs();
   domUpdates.goToGameScreen();
-  domUpdates.enableLetters();
-  //domUpdates.displayWheel();
+  domUpdates.disableKeyboard();
+  //domUpdates.enableLetters();
 }
 
 function quitHandler() {
@@ -115,6 +121,16 @@ function vowelPurchaseHandler() {
     return $('.vowel-error').css('display', 'unset');
   }
   domUpdates.highlightVowels();
+}
+
+function loseATurnHandler() {
+  endTurn();
+}
+
+function bankruptHandler() {
+  game = get('/bankrupt');
+  domUpdates.newPlayerTurn(game.players, game.playerIndex);
+  domUpdates.disableKeyboard();
 }
 
 function startBonusHandler() {
@@ -279,6 +295,11 @@ function revealLetters(game) {
   });
 }
 
+function enableLetters() {
+  domUpdates.enableLetters();
+  
+}
+
 function newPlayerTurn(game) {
   domUpdates.newPlayerTurn(game.players, game.playerIndex);
 }
@@ -295,4 +316,4 @@ function updateCurrentSpin(game) {
   domUpdates.setCurrentSpin(game.currentSpin);
 }
 
-export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard};
+export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters};

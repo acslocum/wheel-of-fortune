@@ -240,7 +240,7 @@ const domUpdates = {
   },
 
   updateCategory(puzzle) {
-    $('.hint-value').text(puzzle.currentPuzzle.category)
+    $('.hint-value').text(puzzle.category)
   },
 
   displayWheelValues(wheel) {
@@ -328,6 +328,8 @@ const domUpdates = {
           <button class="spin-button top-buttons">SPIN</button>
           <button class="solve-button top-buttons">SOLVE</button>
           <button class="vowel-button top-buttons">VOWEL</button>
+          <button class="lose-a-turn-button top-buttons">LOSE A TURN</button>
+          <button class="bankrupt-button top-buttons">BANKRUPT</button>
         </div>
         <div class="in-the-hole">
           <h2 class="in-the-hole-name">player 3</h2>
@@ -337,10 +339,14 @@ const domUpdates = {
   },
 
   resetOnQuit() {
+    this.clearBankAccts();
     $('.vowel-error').css('display', 'none');
     $('.solve-popup').css('display', 'none');
     $('.solve-input').val('');
     $('.spin-number').text('--');
+    $('.home-screen').css('display', 'flex');
+    $('.popup-cover').css('display', 'unset');
+
   }
 
 }

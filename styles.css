@@ -131,10 +131,6 @@ h2 {
   transition: .3s;
 }
 
-.solve-button {
-  margin: 0 65px;
-}
-
 .puzzle-section {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.65);
@@ -191,6 +187,10 @@ h2 {
   padding-top: 5px; 
   position: relative;
   text-shadow: 0 1px 1px rgba(50, 50, 50, .5);
+  width: 95%;
+}
+
+.button-row {
   width: 95%;
 }
 

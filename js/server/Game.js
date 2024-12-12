@@ -61,10 +61,13 @@ class Game {
  //   }
   }
 
+  bankrupt() {
+    this.players[this.playerIndex].wallet = 0;
+    this.endTurn();
+  }
+
   endTurn() {
     this.playerIndex === 2 ? this.playerIndex = 0 : this.playerIndex++;
-    //domUpdates.newPlayerTurn(this.players, this.playerIndex);
-    //domUpdates.disableKeyboard();
   }
 
   endRound() {

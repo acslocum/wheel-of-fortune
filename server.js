@@ -47,6 +47,7 @@ server.on('request', (req, res) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
+            console.log(JSON.stringify(game));
             res.end(JSON.stringify(game.players));
         } else if(req.url === '/updatePlayerWallet') {
             let body = '';
@@ -115,7 +116,7 @@ server.on('request', (req, res) => {
             console.log(query);
             let params = querystring.parse(query);
             console.log(JSON.stringify(params));
-            if(params.player1 !== undefined) {
+            if(params !== null || params.player1 !== undefined) {
                 console.log("not null params")
                 console.log(params.player1);
                 game.setNames(params.player1, params.player2, params.player3);
@@ -137,6 +138,12 @@ server.on('request', (req, res) => {
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
             game.endTurn();
+            res.end(JSON.stringify(game));
+        } else if (req.url.startsWith('/bankrupt')) {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Keep-Alive', 'timeout=0');
+            game.bankrupt();
             res.end(JSON.stringify(game));
         } else if (req.url.startsWith('/reset')) {
             res.statusCode = 200;
