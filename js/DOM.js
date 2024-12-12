@@ -12,7 +12,6 @@ const domUpdates = {
   getPlayerOne() {
     if ($('.player1-name').val()) {
       var playerOne = $('.player1-name').val();
-      $('.player1-ba').text(`${$('.player1-name').val()}: $`);
     } else {
       var playerOne = 'Player 1';
     }
@@ -22,7 +21,6 @@ const domUpdates = {
   getPlayerTwo() {
     if ($('.player2-name').val()) {
       var playerTwo = $('.player2-name').val();
-      $('.player2-ba').text(`${$('.player2-name').val()}: $`);
     } else {
       var playerTwo = 'Player 2';
     }
@@ -32,7 +30,6 @@ const domUpdates = {
   getPlayerThree() {
     if ($('.player3-name').val()) {
       var playerThree = $('.player3-name').val();
-      $('.player3-ba').text(`${$('.player3-name').val()}: $`);
     } else {
       var playerThree = 'Player 3';
     }
@@ -51,26 +48,21 @@ const domUpdates = {
   },
 
   displayNames(playerArray, index) {
-    $('.game-winner').text(playerArray[index].name);
-    $('.winning-score').text(playerArray[index].wallet);
-    if (index === 2) {
-      $('.on-deck-name').text(playerArray[0].name);
-      $('.on-deck-score').text(playerArray[0].wallet);
-      $('.in-the-hole-name').text(playerArray[1].name);
-      $('.in-the-hole-score').text(playerArray[1].wallet);
-    } else if (index === 1) {
-      $('.on-deck-name').text(playerArray[2].name);
-      $('.on-deck-score').text(playerArray[2].wallet);
-      $('.in-the-hole-name').text(playerArray[0].name);
-      $('.in-the-hole-score').text(playerArray[0].wallet);
-    } else {
-      $('.on-deck-name').text(playerArray[1].name);
-      $('.on-deck-score').text(playerArray[1].wallet);
-      $('.in-the-hole-name').text(playerArray[2].name);
-      $('.in-the-hole-score').text(playerArray[2].wallet);
-    }
-    
-      
+    $('.player-1-name').text(playerArray[0].name);
+    $('.player-1-score').text(playerArray[0].wallet);
+    $('.player1-ba').text(playerArray[0].name);
+    $('.player1-ba-num').text(playerArray[0].bankAcct);
+
+    $('.player-2-name').text(playerArray[1].name);
+    $('.player-2-score').text(playerArray[1].wallet);
+    $('.player2-ba').text(playerArray[1].name);
+    $('.player2-ba-num').text(playerArray[1].bankAcct);
+
+    $('.player-3-name').text(playerArray[2].name);
+    $('.player-3-score').text(playerArray[2].wallet);
+    $('.player3-ba').text(playerArray[2].name);
+    $('.player3-ba-num').text(playerArray[2].bankAcct);
+
   },
 
   displayWinner(winner, score) {
@@ -177,24 +169,14 @@ const domUpdates = {
   },
 
   newPlayerTurn(array, index) {
-    $('.game-winner').text(array[index].name);
-    $('.winning-score').text(array[index].wallet);
-    if (index === 2) {
-      $('.on-deck-name').text(array[0].name);
-      $('.on-deck-score').text(array[0].wallet);
-      $('.in-the-hole-name').text(array[1].name)
-      $('.in-the-hole-score').text(array[1].wallet)
-    } else if (index === 1) {
-      $('.on-deck-name').text(array[2].name);
-      $('.on-deck-score').text(array[2].wallet);
-      $('.in-the-hole-name').text(array[0].name)
-      $('.in-the-hole-score').text(array[0].wallet)
-    } else {
-      $('.on-deck-name').text(array[1].name);
-      $('.on-deck-score').text(array[1].wallet);
-      $('.in-the-hole-name').text(array[2].name)
-      $('.in-the-hole-score').text(array[2].wallet)
-    }
+    let players = Array.from($('.player-info'));
+    players.forEach((player, i) => {
+      if (i === index) {
+        $(player).addClass('current-player');
+      } else {
+        $(player).removeClass('current-player');
+      }
+    });
   },
 
   highlightVowels() {
@@ -215,10 +197,6 @@ const domUpdates = {
     if ($(event.target).hasClass('vowel')) {
       $(event.target).toggleClass('vowel-disabled');
     }
-  },
-
-  updateWallet(player) {
-    $('.winning-score').text(player.wallet);
   },
 
   updateCurrentSpin() {
@@ -276,24 +254,6 @@ const domUpdates = {
     $('.solve-popup').css('display', 'none');
   },
 
-  updateBankAccts(players) {
-    $('.player1-ba').text(`${players[0].name}: $`);
-    $('.player1-ba-num').text(players[0].bankAcct);
-    $('.player2-ba').text(`${players[1].name}: $`);
-    $('.player2-ba-num').text(players[1].bankAcct);
-    $('.player3-ba').text(`${players[2].name}: $`);
-    $('.player3-ba-num').text(players[2].bankAcct);
-  },
-
-  clearBankAccts() {
-    $('.player1-ba-num').text('0');
-    $('.player2-ba-num').text('0');
-    $('.player3-ba-num').text('0');
-    $('.player1-ba').text('P1: $');
-    $('.player2-ba').text('P2: $');
-    $('.player3-ba').text('P3: $')
-  },
-
   displayBonusIntro(winner, score) {
     $('.popup-cover').css('display', 'unset');
     $('.bonus-round-intro').css('display', 'flex');
@@ -339,7 +299,6 @@ const domUpdates = {
   },
 
   resetOnQuit() {
-    this.clearBankAccts();
     $('.vowel-error').css('display', 'none');
     $('.solve-popup').css('display', 'none');
     $('.solve-input').val('');

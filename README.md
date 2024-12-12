@@ -35,16 +35,16 @@ Run `git clone https://github.com/b3an5/wheel-of-fortune.git` in your terminal t
 
 TODO
 /quitGame - dev complete
-new round player names
+new round player names - on board only (lose names?)
+bank account extra colons
 reload to reset server - quit solves it??
 round number  - remove?
 vowel highlights ????
-non host view - done?
-next puzzle button
+next puzzle button -v done
 don't auto load next puzzle
 solve button turns to show the puzzle and correct and incorrect buttons
-1 red
-2 blue
-3 yellow
-don't move players names move a highlight
-poll instead of reload the display screen - run in loop with a sleep instead of reload
+DONE 1 red
+DONE 2 blue
+DONE 3 yellow
+DONE don't move players names move a highlight
+DONE poll instead of reload the display screen - run in loop with a sleep instead of reload

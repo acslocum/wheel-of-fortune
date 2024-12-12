@@ -4,7 +4,6 @@ import Puzzle from './Puzzle.js';
 let buzzer = new Audio('./audio/Buzzer.mp3');
 let chooseSound = new Audio('./audio/choose.mp3');
 let ding = new Audio('./audio/Ding.mp3');
-let theme = new Audio('./audio/theme.mp3');
 let solveSound = new Audio('./audio/solve.mp3');
 let spinSound = new Audio('./audio/spin.mp3');
 let bankrupt = new Audio('./audio/bankr.mp3');
@@ -23,27 +22,16 @@ $('.spin-text').on('click', spinHandler);
 $('.vowel-button').on('click', vowelPurchaseHandler);
 $('.lose-a-turn-button').on('click', loseATurnHandler);
 $('.bankrupt-button').on('click', bankruptHandler);
+$('.new-puzzle-button').on('click', newRoundHandler);
 $('.start-bonus-round').on('click', startBonusHandler);
 $('.bonus-round-intro').on('click', newGameHandler);
 $('.keyboard-section').on('click', keyboardHandler);
-$('header').on('click', () => {
-  theme.volume = 0.7;
-});
 
-function playLoopingAudio(audioObject)  {
-  audioObject.play();
-  audioObject.addEventListener('ended', () => {
-    audioObject.play();
-  });
-}
 
 function init() {
   resetPlayers();
   var names = domUpdates.getPlayerNames();
   newRoundHandler(names);
-  setTimeout(() => {
-    playLoopingAudio(theme);
-  }, 1000);
 }
 
 function get(url, data=null) {
@@ -65,8 +53,9 @@ function resetPlayers() {
 
 function newRoundHandler(names) {
   let data;
-  if(names !== undefined)
+  if(names !== undefined && names !== null) {
     data = {'player1': names[0], 'player2': names[1], 'player3': names[2]};
+  }
   game = get('/newRound', data);
   updateNames(game);
   puzzle = new Puzzle(game.lastPuzzle);
@@ -81,14 +70,19 @@ function updateCategory(puzzle) {
   domUpdates.updateCategory(puzzle);
 }
 
-function setUpRound() {
+function resetPuzzleSquares() {
   domUpdates.resetPuzzleSquares();
+}
+
+function setUpRound() {
+  resetPuzzleSquares();
   puzzle.populateBoard();
   updateCategory(game.lastPuzzle);
   domUpdates.newRoundKeyboard();
   domUpdates.clearInputs();
   domUpdates.goToGameScreen();
   domUpdates.disableKeyboard();
+  newPlayerTurn(game)
   //domUpdates.enableLetters();
 }
 
@@ -108,7 +102,6 @@ function checkIfPuzzleSolved() {
     endRound();
     domUpdates.yellCurrentSpin('CORRECT');
     chooseSound.pause();
-    playLoopingAudio(theme);
     solveSound.play();
     setTimeout(domUpdates.yellCurrentSpin, 2000);
     setTimeout(newRoundHandler, 2500);
@@ -148,14 +141,14 @@ function newGameHandler(e) {
 function endRound() {
   game = get('/endRound');
   let winner = game.players[game.playerIndex];
-  domUpdates.updateBankAccts(game.players);
+  updateNames(game);
   domUpdates.displayWinner(winner.name, winner.wallet);
 }
 
 function endRoundBoard() {
   game = get('/game');
   let winner = game.players[game.playerIndex];
-  domUpdates.updateBankAccts(game.players);
+  updateNames(game);
   if(game.winner !== null) {
     domUpdates.displayWinner(winner.name, winner.wallet);
   }
@@ -168,9 +161,8 @@ function solveHandler() {
   if (result) {
     endRound();
     chooseSound.pause();
-    playLoopingAudio(theme);
     solveSound.play();
-    setTimeout(newRoundHandler, 2500);
+    //setTimeout(newRoundHandler, 2500);
   } else {
     buzzer.play();
     game.endTurn();
@@ -207,10 +199,6 @@ function badSpinHandler() {
     bankrupt.play();
     game.players[game.playerIndex].wallet = 0;
     game.endTurn();
-  } else {
-    theme.pause()
-    playLoopingAudio(chooseSound);
-    chooseSound.volume = 0.8;
   }
 }
 
@@ -224,6 +212,7 @@ function keyboardHandler(e) {
   } else {
     consonantGuessHandler(currentGuess, currentTurn, e);
   }
+  updateNames(game);
 }
 
 function vowelGuessHandler(currentGuess, currentTurn, e) {
@@ -268,7 +257,6 @@ function updatePlayerWallet(player, wheelValue, numCorrect) {
     }
   });
   game = data;
-  domUpdates.updateWallet(game.players[player.index]);
 }
 
 function consonantGuessHandler(currentGuess, currentTurnPlayer, e) {
@@ -315,4 +303,4 @@ function updateCurrentSpin(game) {
   domUpdates.setCurrentSpin(game.currentSpin);
 }
 
-export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters};
+export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters, resetPuzzleSquares};

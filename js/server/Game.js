@@ -38,10 +38,8 @@ class Game {
   }
 
   startRound() {
-    this.round = this.round%4 + 1;
+    this.round++;
     //$('.round-num').text(this.round);
-    let roundIndex = this.round - 1;
-    let puzzleKeyIndex = this.puzzleKeys[roundIndex];
     // if (this.round === 6) {
     //   return;
     // } else if (this.round === 5) {

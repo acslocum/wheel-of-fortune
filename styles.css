@@ -56,18 +56,27 @@ header div {
   width: 90%;
 }
 
-.in-the-hole {
+.player-info {
   font-size: .8rem;
   height: 6rem;
   margin-right: 0px;
   margin-top: 6rem;
 }
 
-.on-deck {
-  font-size: .8rem;
-  height: 6rem;
-  margin-left: 0px;
-  margin-top: 6rem;
+.player-1 {
+  background-color: rgb(216, 100, 100);
+}
+
+.player-2 {
+  background-color: rgb(100, 100, 216);
+}
+
+.player-3 {
+  background-color: rgb(100, 216, 100);
+}
+
+.current-player {
+  border: 5px solid yellow;
 }
 
 .at-bat {

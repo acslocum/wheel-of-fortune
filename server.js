@@ -103,19 +103,18 @@ server.on('request', (req, res) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
-            res.end(JSON.stringify(scores));
         } else if (req.url.startsWith('/game')) {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
-            console.log(JSON.stringify(game));
+            //console.log(JSON.stringify(game));
             res.end(JSON.stringify(game));
         } else if (req.url.startsWith('/newRound')) {
             let query = url.parse(req.url).query;
             console.log(query);
             let params = querystring.parse(query);
             console.log(JSON.stringify(params));
-            if(params !== null || params.player1 !== undefined) {
+            if(params !== null && params.player1 !== undefined) {
                 console.log("not null params")
                 console.log(params.player1);
                 game.setNames(params.player1, params.player2, params.player3);
