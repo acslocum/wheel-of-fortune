@@ -54,7 +54,7 @@ class Game {
     // console.log(data.puzzles);
     // console.log(puzzleKeyIndex);
     // console.log(data.puzzles[puzzleKeyIndex]);
-     let round = new Round(data.puzzles[puzzleKeyIndex].puzzle_bank);
+     let round = new Round(data.puzzles.puzzle_bank);
       this.lastPuzzle = round.generatePuzzle();
       this.lettersGuessed = [];
       this.winner = null;

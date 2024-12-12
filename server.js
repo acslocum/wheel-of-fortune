@@ -7,7 +7,7 @@ const querystring = require('node:querystring');
 const fs = require('fs');
 const path = require('path');
 const ext = /[\w\d_-]+\.[\w\d]+$/;
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const port = 3000;
 
 const mimeType = {
@@ -95,7 +95,6 @@ server.on('request', (req, res) => {
                 }
             });
         } else if (req.url.startsWith('/score')) {
-            dateForTesting = new Date();
             const scores = [
                 { player: game.players[0].index, score: game.players[0].wallet, current: game.playerIndex === 0 },
                 { player: game.players[1].index, score: game.players[1].wallet, current: game.playerIndex === 1 },

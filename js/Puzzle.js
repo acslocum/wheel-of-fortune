@@ -3,12 +3,17 @@ import domUpdates from './DOM.js';
 class Puzzle {
   constructor(currentPuzzle) {
     this.currentPuzzle = currentPuzzle;
-    this.puzzleLength = this.currentPuzzle.total_number_of_letters;
+    this.puzzleLength = this.countCharacters(this.currentPuzzle.correct_answer);
     this.correctCount = 0;
     this.numberCorrect = 0;
     this.completed = false;
   }
 
+  countCharacters(aPhrase) {
+    var regex = /[a-zA-Z0-9]/g; 
+    return aPhrase.match(regex).length;
+  }
+  
   populateBoard() {
     let puzzleArray = this.currentPuzzle.correct_answer.split('');
     domUpdates.populatePuzzleSquares(puzzleArray);

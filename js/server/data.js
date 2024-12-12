@@ -8,650 +8,142 @@ const data = {
     },
   },
   puzzles: {
-    fortress: {
-      date: 'Dec 11 2024',
       puzzle_bank: [
-        {  
-          /*
-          ideas:
-          Person: Zach London
-          Rooms: The Second Chicken Room
-          Person: Steven Hawking
-          Person: Skippy
-          Rooms: The First Chicken Room
-          Rooms: Headless Horseman's Bat Mitzvah
-          A Good Cause: Penny Seats
-          Rooms: Irish Wake
-          Rooms: Disney Shooting Gallery
-          Rooms: It's a Small World
-          Rooms: Yooperland
-          Rooms: Top of the Jurassic Park
-          Ann Arbor: Ashley's
-          Ann Arbor: The Fleetwood
-          Ann Arbor: The Blind Pig
-          Ann Arbor: The Ark
-          Ann Arbor: Heidelberg
-          Ann Arbor: Gandy Dancer
-          Ann Arbor: The Brown Jug
-          Ann Arbor: Pretzel Bell
-          Ann Arbor: Last Word
-          Ann Arbor: Blue Tractor
-          Ann Arbor: Blue Nile
-          Ann Arbor: Blue Llama
-          Ann Arbor: Arbor Brewing Company
-          Ann Arbor: Alley Bar
-          Ann Arbor: Grizzly Peak
-          Person: Chrisopher Taylor
-          Rooms: The Hobbits Go To Broadway
-          Rooms: Valhalla
-          Rooms: Scooby Doo
-          Rooms: Valhalla
-          Rooms: Box Party
-          Rooms: Chuck E Cheese
-          Rooms: Deer Abby
-          Rooms: The Womb Room
-          */
-          category: 'Around The House',
-          total_number_of_letters: 8,
-          description:'Location or object(s) found within a typical house.',
-          correct_answer: 'Armchair',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 7,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Beepers',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 10,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Tamagotchi',
-        },
-      ]
-    },
-    one_word_answers: {
-      date: 'Oct 07 2018',
-      puzzle_bank: [
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 8,
-          description:'Location or object(s) found within a typical house.',
-          correct_answer: 'Armchair',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 7,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Beepers',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 10,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Tamagotchi',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 6,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Teapot',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 10,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Scrunchies',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 8,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Mousepad',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 9,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Sketchers',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 8,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Toolkits',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 7,
-          description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Bonjour',
-        },
-         {  
-          category: 'The 90s',
-          total_number_of_letters: 9,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Operation',
-        },
-         {  
-          category: 'The 90s',
-          total_number_of_letters: 3,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Moo',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 6,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Cheers',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 2,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Hi',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 10,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Hocus-Pocus',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 6,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Presto',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 12,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Trick-Or-Treat',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 11,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Tutti-Fruiti',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Lovey-Dovey',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 11,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Windowpanes',
-        },{  
-          category:'Around The House',
-          total_number_of_letters: 10,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Snowblower',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 7,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Hotshot',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Superduper',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Willy-Nilly',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 6,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Bow-wow',
-        }
-      ]
-    },
-    two_word_answers: {
-      date: 'Oct 07 2018',
-      puzzle_bank: [
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 11,
-          description:'Location or object(s) found within a typical house.',
-          correct_answer: 'Amusing Yarn',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 11,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Bowl Haircut',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 13,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Britney Spears',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 12,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Beanbag Chair',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 9,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Lite Brite',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 8,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Brass bed',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 9,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'South Park',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 15,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Chic Furnishings',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 6,
-          description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Fess Up',
-        },
-         {  
-          category: 'The 90s',
-          total_number_of_letters: 6,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Fun Dip',
-        },
-         {  
-          category: 'The 90s',
-          total_number_of_letters: 10,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Celine Dion',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 7,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Get Lost',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 8,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Admit One',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 9,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'You Betcha',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 10,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Open Sesame',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 11,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Good Morning',
-        },{  
-          category: 'Around The House',
-          total_number_of_letters: 11,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Windowpanes',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 8,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Wine & Dine',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Fight Night',
-        },
-        {  
-          category:'Around The House',
-          total_number_of_letters: 9,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Corn Syrup',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 11,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Flower Power',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 15,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Jeepers Creepers',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Even Steven',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 6,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Fat Cat',
-        }
-      ]
-    },
-    three_word_answers: {
-      date: 'Oct 07 2018',
-      puzzle_bank: [
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 10,
-          description:'Location or object(s) found within a typical house.',
-          correct_answer: 'Hot Glue Gun',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 12,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Tickle Me Elmo',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 13,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'In Living Color',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 13,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Detox Foot Pads',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 19,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'The Smashing Pumpkins',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 14,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Wooden End Table',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 14,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Magic School Bus',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 15,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'USB Power Adapter',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 6,
-          description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'I Dig It',
-        },
-          {  
-          category: 'The 90s',
-          total_number_of_letters: 19,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Best Friend Necklaces',
-        },
-          {  
-          category: 'The 90s',
-          total_number_of_letters: 13,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Air Jordan Sneakers',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 8,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'By The Way',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 8,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Admit One',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 8,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Get A Grip',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 9,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Cool As Ice',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 10,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'No Such Luck',
-        },{  
-          category: 'Around The House',
-          total_number_of_letters: 16,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'French Rolling Pin',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 8,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Hop On Pop',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 11,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Twice As Nice',
-        },
-        {  
-          category:'Around The House',
-          total_number_of_letters: 17,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Plaid Flannel Shirt',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 21,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Sardines And Tangerines',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 12,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Meet And Greet',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 11,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'In Like Flynn',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 11,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Claim To Fame',
-        }
-      ]
-    },
-    four_word_answers: {
-      date: 'Oct 07 2018',
-      puzzle_bank: [
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 17,
-          description:'Location or object(s) found within a typical house.',
-          correct_answer: 'Roll Of Toilet Paper',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 14,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Saved By The Bell',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 18,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'The Mickey Mouse Club',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 17,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Vase Full Of Flowers',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 24,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'There\'s Something About Mary',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 21,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'High Thread Count Sheets',
-        },
-        {  
-          category: 'The 90s',
-          total_number_of_letters: 18,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Red Hot Chili Peppers',
-        },
-        {  
-          category: 'Around The House',
-          total_number_of_letters: 22,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Fancy White Cloth Napkins',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 8,
-          description: 'any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'From A To Z',
-        },
-          {  
-          category: 'The 90s',
-          total_number_of_letters: 22,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Six Degrees of Separation',
-        },
-          {  
-          category: 'The 90s',
-          total_number_of_letters: 19,
-          description:'Puzzles pertaining to the decade in question.',
-          correct_answer: 'Mary Kate & Ashley Olsen',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 9,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Sly As A Fox',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 10,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Pay As You Go',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 11,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Give Me A Hint',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 12,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'A Piece Of Cake',
-        },
-        {  
-          category: 'Phrase',
-          total_number_of_letters: 12,
-          description: 'Any two (or more) related phrases separated by a comma or otherwise used consecutively',
-          correct_answer: 'Happy As A Clam',
-        },{  
-          category: 'Around The House',
-          total_number_of_letters: 25,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'Clear Plastic Shower Curtain',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 10,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Snug As A Bug',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 15,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Ants In Your Pants',
-        },
-        {  
-          category:'Around The House',
-          total_number_of_letters: 12,
-          description: 'Location or object(s) found within a typical house.',
-          correct_answer: 'A Pile Of Coats',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 18,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Good Golly Miss Molly',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 21,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'Hostess With The Mostest',
-        },
-        {  
-          category:'Rhyme Time',
-          total_number_of_letters: 22,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'An Attitude of Gratitude',
-        },{  
-          category:'Rhyme Time',
-          total_number_of_letters: 16,
-          description: 'Rhyming word(s) or phrase(s).',
-          correct_answer: 'You Snooze You Lose',
-        }
+        { category: '2024 Fortress Theme', correct_answer: 'TED Talks', },
+        { category: '2025 Fortress Theme', correct_answer: 'Back to the Future', },
+        { category: '2026 Fortress Theme', correct_answer: 'National Treasure', },
+        { category: '2027 Fortress Theme', correct_answer: 'The Dood Ranch', },
+        { category: '2028 Fortress Theme', correct_answer: 'Fake Moon Landing', },
+        { category: '2030 Fortress Theme', correct_answer: 'Where\'d You Get Your Incan', },
+        { category: '2023 Fortress Theme', correct_answer: 'Afterlife Jam', },
+        { category: '2024 Fortress Theme', correct_answer: 'Cocaine Bear', },
+        { category: '2025 Fortress Theme', correct_answer: 'SNL Auditions', },
+        { category: '2022 Fortress Theme', correct_answer: 'Neurology Resident Room', },
+        { category: '2023 Fortress Theme', correct_answer: 'Ann Arbor Pedal Pub', },
+        { category: '2024 Fortress Theme', correct_answer: 'Belly Of A Whale', },
+        { category: '2021 Fortress Theme', correct_answer: 'Stranger Things', },
+        { category: '2022 Fortress Theme', correct_answer: 'The Organ Trail', },
+        { category: '2023 Fortress Theme', correct_answer: 'Planet Fitness', },
+        { category: '2024 Fortress Theme', correct_answer: 'Chuck E. Cheese', },
+        { category: '2025 Fortress Theme', correct_answer: 'Wandavision', },
+        { category: '2019 Fortress Theme', correct_answer: 'United Clothesline', },
+        { category: '2020 Fortress Theme', correct_answer: 'Tibet Town Hall', },
+        { category: '2021 Fortress Theme', correct_answer: 'Chernobyl Humane Society', },
+        { category: '2022 Fortress Theme', correct_answer: 'Broadway in the Shire', },
+        { category: '2018 Fortress Theme', correct_answer: 'Slytherin Common Room', },
+        { category: '2019 Fortress Theme', correct_answer: 'Geisha House', },
+        { category: '2020 Fortress Theme', correct_answer: 'Sesame Street', },
+        { category: '2021 Fortress Theme', correct_answer: 'The Wren Faire', },
+        { category: '2022 Fortress Theme', correct_answer: 'Dia De Los Muertos', },
+        { category: '2017 Fortress Theme', correct_answer: 'Jurassic Top of the Park', },
+        { category: '2018 Fortress Theme', correct_answer: 'Scooby Doo', },
+        { category: '2019 Fortress Theme', correct_answer: 'Moulin Rouge', },
+        { category: '2020 Fortress Theme', correct_answer: 'Down the Rabbit Hole', },
+        { category: '2021 Fortress Theme', correct_answer: 'Box Party', },
+        { category: '2016 Fortress Theme', correct_answer: 'Carneval de Venicia', },
+        { category: '2017 Fortress Theme', correct_answer: 'Post-Op on Pop', },
+        { category: '2018 Fortress Theme', correct_answer: 'Wonka Factory', },
+        { category: '2019 Fortress Theme', correct_answer: 'Camleton', },
+        { category: '2020 Fortress Theme', correct_answer: 'Civil War USO Show', },
+        { category: '2021 Fortress Theme', correct_answer: 'Cromagnon Manor', },
+        { category: '2015 Fortress Theme', correct_answer: 'Narnia', },
+        { category: '2016 Fortress Theme', correct_answer: 'Montezuma\'s Review', },
+        { category: '2017 Fortress Theme', correct_answer: 'Theseus Grocery Run', },
+        { category: '2018 Fortress Theme', correct_answer: 'Disney Big Game Hunting', },
+        { category: '2019 Fortress Theme', correct_answer: 'The Blue Man Group', },
+        { category: '2015 Fortress Theme', correct_answer: 'German Park', },
+        { category: '2016 Fortress Theme', correct_answer: 'Hungry Hungry Hip Hop', },
+        { category: '2017 Fortress Theme', correct_answer: 'Canadian Duty Free Shop', },
+        { category: '2018 Fortress Theme', correct_answer: 'Museums of Michigan', },
+        { category: '2019 Fortress Theme', correct_answer: 'The Womb Room', },
+        { category: '2020 Fortress Theme', correct_answer: 'Devil Went Up to Michigan', },
+        { category: '2013 Fortress Theme', correct_answer: 'Cirque du Soleil', },
+        { category: '2014 Fortress Theme', correct_answer: 'Finnegan\'s Wake', },
+        { category: '2015 Fortress Theme', correct_answer: 'Fratlantis', },
+        { category: '2016 Fortress Theme', correct_answer: 'Game Room of Thrones', },
+        { category: '2017 Fortress Theme', correct_answer: 'The Legend of Sleepy Challah', },
+        { category: '2018 Fortress Theme', correct_answer: 'Headless Horseman\'s Mitzvah', },
+        { category: '2019 Fortress Theme', correct_answer: 'Ellis Island', },
+        { category: '2012 Fortress Theme', correct_answer: 'It\'s a Small World', },
+        { category: '2013 Fortress Theme', correct_answer: 'Mayan Madness', },
+        { category: '2014 Fortress Theme', correct_answer: 'Anarchist\'s Wedding Expo', },
+        { category: '2015 Fortress Theme', correct_answer: 'Eastern Blloc Party', },
+        { category: '2016 Fortress Theme', correct_answer: 'A Brief History of Love', },
+        { category: '2011 Fortress Theme', correct_answer: 'The Salem Meetinghouse', },
+        { category: '2012 Fortress Theme', correct_answer: 'The Dry Gulch Saloon', },
+        { category: '2013 Fortress Theme', correct_answer: 'Cockfight One and Two', },
+        { category: '2014 Fortress Theme', correct_answer: 'Village People Karaoke', },
+        { category: '2010 Fortress Theme', correct_answer: 'Beatles at Che Stadium', },
+        { category: '2011 Fortress Theme', correct_answer: 'Google Street View', },
+        { category: '2012 Fortress Theme', correct_answer: 'Pinnocchio', },
+        { category: '2013 Fortress Theme', correct_answer: 'Up the River', },
+        { category: '2014 Fortress Theme', correct_answer: 'Pompeii Prom', },
+        { category: '2009 Fortress Theme', correct_answer: 'Cafe De Pamplona', },
+        { category: '2010 Fortress Theme', correct_answer: 'Werewolf Astronaut', },
+        { category: '2011 Fortress Theme', correct_answer: 'The Hobo Jungle', },
+        { category: '2012 Fortress Theme', correct_answer: 'Skull and Bones Society', },
+        { category: '2008 Fortress Theme', correct_answer: 'Alaskan Fishing Fever', },
+        { category: '2009 Fortress Theme', correct_answer: 'Cyborg Wedding', },
+        { category: '2010 Fortress Theme', correct_answer: 'Amazing Sea Monkeys', },
+        { category: '2011 Fortress Theme', correct_answer: 'Fallout Shelter', },
+        { category: '2012 Fortress Theme', correct_answer: 'Mrs. O\'Leary\'s Shed', },
+        { category: '2013 Fortress Theme', correct_answer: 'Robot Supply and Repair', },
+        { category: '2007 Fortress Theme', correct_answer: 'Double Black Diamond', },
+        { category: '2008 Fortress Theme', correct_answer: 'The Panic Room', },
+        { category: '2006 Fortress Theme', correct_answer: 'Taiwan Best Hot Bar', },
+        { category: '2007 Fortress Theme', correct_answer: 'Hall of Unnatural Science', },
+        { category: '2008 Fortress Theme', correct_answer: 'The Bird Cage', },
+        { category: '2005 Fortress Theme', correct_answer: 'The Bland Ole Opry', },
+        { category: '2006 Fortress Theme', correct_answer: 'The Golden Fez', },
+        { category: '2004 Fortress Theme', correct_answer: 'Everest Base Camp', },
+        { category: '2003 Fortress Theme', correct_answer: 'Nirvana', },
+        { category: '2002 Fortress Theme', correct_answer: 'Fortress Gladiators', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Like a Fortress Virgin', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Don\'t Break the Fort Wall', },
+        { category: 'Fortress Party Sticker', correct_answer: 'The Fort Surrounds Us', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Maze and Blue', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fjort (Norwegian Fort)', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Claustrophilic', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fort Shadowing', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Your Sheetin\' Heart', },
+        { category: 'Fortress Party Sticker', correct_answer: 'The Fort Authority', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fortitude', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Pig in a Blanket', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Sally Fort', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Safety First', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Thread Count Dracula', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Riddled With Quilt', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fortissimo', },
+        { category: 'Fortress Party Sticker', correct_answer: 'A Fort to Be Reckoned With', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Black Sheet of the Family', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Tour De Fort', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Sheets Going Down', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Out of Your Com-Fort Zone', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Under Covers Brother', },
+        { category: 'Fortress Party Sticker', correct_answer: 'I Rest My Pillow Case', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Sheet Faced', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Solider of Fortin\'', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Walk Like an Egyptian Cotton', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Linen and McCartney', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Sheet Hits the Fan', },
+        { category: 'Fortress Party Sticker', correct_answer: 'And So On and So Fort', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Three Sheets to the Wind', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Petit Fort', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Quilt By Association', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fort-On Hears a Who', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Sheet Happens', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fort-Thodox Jew', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Model T Fort', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fortin\' Cookie', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Out of the Linen Closet', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Vladimir Ilyich Linen', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Who Forted?', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Ape Sheet', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Fort-Nite Battle Royale', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Lordy Lordy I\'m a Forty', },
+        { category: 'Fortress Party Sticker', correct_answer: 'Be Fortful and Multiply', },
       ]
     }
-  }
 };
 
 module.exports = data;
