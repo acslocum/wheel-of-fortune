@@ -21,8 +21,8 @@ server.on('request', (req, res) => {
         p1Curr = secondDigit < 5
         console.log("p1Curr: %d, bool %d", secondDigit, p1Curr)
         const scores = [
-            { player: 1, score: 100, current: p1Curr },
-            { player: 2, score: 200, current: !p1Curr },
+            { player: 1, score: 100 + secondDigit, current: p1Curr },
+            { player: 2, score: 200 + 10 * secondDigit, current: !p1Curr },
             { player: 3, score: 300 + dateForTesting.getSeconds(), current: false }
         ];
         res.statusCode = 200;
