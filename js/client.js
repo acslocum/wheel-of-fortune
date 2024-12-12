@@ -70,7 +70,6 @@ function newRoundHandler(names) {
   game = get('/newRound', data);
   updateNames(game);
   puzzle = new Puzzle(game.lastPuzzle);
-  //wheel = round.generateWheelValue();
   setUpRound();
 }
 

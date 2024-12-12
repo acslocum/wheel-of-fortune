@@ -7,39 +7,69 @@ const data = {
       puzzles: 1
     },
   },
-  wheel: [
-    900,
-    'BANKRUPT',
-    2500,
-    600,
-    700,
-    600,
-    650,
-    500,
-    700,
-    'BANKRUPT',
-    600,
-    550,
-    500,
-    600,
-    'BANKRUPT',
-    'LOSE A TURN',
-    700,
-    800,
-    500,
-    650,
-    500,
-    900
-  ],
-  bonusWheel: [
-  20000,
-  3000,
-  4000,
-  5000,
-  6000,
-  7000
-  ],
   puzzles: {
+    fortress: {
+      date: 'Dec 11 2024',
+      puzzle_bank: [
+        {  
+          /*
+          ideas:
+          Person: Zach London
+          Rooms: The Second Chicken Room
+          Person: Steven Hawking
+          Person: Skippy
+          Rooms: The First Chicken Room
+          Rooms: Headless Horseman's Bat Mitzvah
+          A Good Cause: Penny Seats
+          Rooms: Irish Wake
+          Rooms: Disney Shooting Gallery
+          Rooms: It's a Small World
+          Rooms: Yooperland
+          Rooms: Top of the Jurassic Park
+          Ann Arbor: Ashley's
+          Ann Arbor: The Fleetwood
+          Ann Arbor: The Blind Pig
+          Ann Arbor: The Ark
+          Ann Arbor: Heidelberg
+          Ann Arbor: Gandy Dancer
+          Ann Arbor: The Brown Jug
+          Ann Arbor: Pretzel Bell
+          Ann Arbor: Last Word
+          Ann Arbor: Blue Tractor
+          Ann Arbor: Blue Nile
+          Ann Arbor: Blue Llama
+          Ann Arbor: Arbor Brewing Company
+          Ann Arbor: Alley Bar
+          Ann Arbor: Grizzly Peak
+          Person: Chrisopher Taylor
+          Rooms: The Hobbits Go To Broadway
+          Rooms: Valhalla
+          Rooms: Scooby Doo
+          Rooms: Valhalla
+          Rooms: Box Party
+          Rooms: Chuck E Cheese
+          Rooms: Deer Abby
+          Rooms: The Womb Room
+          */
+          category: 'Around The House',
+          total_number_of_letters: 8,
+          description:'Location or object(s) found within a typical house.',
+          correct_answer: 'Armchair',
+        },
+        {  
+          category: 'The 90s',
+          total_number_of_letters: 7,
+          description:'Puzzles pertaining to the decade in question.',
+          correct_answer: 'Beepers',
+        },
+        {  
+          category: 'The 90s',
+          total_number_of_letters: 10,
+          description:'Puzzles pertaining to the decade in question.',
+          correct_answer: 'Tamagotchi',
+        },
+      ]
+    },
     one_word_answers: {
       date: 'Oct 07 2018',
       puzzle_bank: [
