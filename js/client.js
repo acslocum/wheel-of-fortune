@@ -12,12 +12,14 @@ let game;
 let round;
 let puzzle;
 //let wheel;
+let VOWEL_COST = 250;
 
 $('.start-button').on('click', init);
 $('.quit').on('click', quitHandler);
 $('.spin-button').on('click', spinHandler);
 $('.solve-button').on('click', domUpdates.displaySolvePopup);
-$('.solve-input-button').on('click', solveHandler);
+$('.solve-correct-button').on('click', solveCorrectHandler);
+$('.solve-wrong-button').on('click', solveWrongHandler);
 $('.spin-text').on('click', spinHandler);
 $('.vowel-button').on('click', vowelPurchaseHandler);
 $('.lose-a-turn-button').on('click', loseATurnHandler);
@@ -109,7 +111,7 @@ function checkIfPuzzleSolved() {
 }
 
 function vowelPurchaseHandler() {
-  if (game.players[game.playerIndex].wallet < 100) {
+  if (game.players[game.playerIndex].wallet < VOWEL_COST) {
     return $('.vowel-error').css('display', 'unset');
   }
   domUpdates.highlightVowels();
@@ -154,8 +156,8 @@ function endRoundBoard() {
   }
 }
 
-function solveHandler() {
-  let guess = $('.solve-input').val().toLowerCase();
+function solveHandler(guess) {
+  domUpdates.hideSolvePopup();
   $('.solve-input').val('');
   let result = puzzle.solvePuzzle(guess);
   if (result) {
@@ -165,9 +167,17 @@ function solveHandler() {
     //setTimeout(newRoundHandler, 2500);
   } else {
     buzzer.play();
-    game.endTurn();
+    endTurn();
   }
 };
+
+function solveCorrectHandler() {
+  solveHandler(puzzle.correctAnswer());
+}
+
+function solveWrongHandler() {
+  solveHandler("wrong")
+}
 
 function solveBonusHandler(result) {
   if (result) {
@@ -277,6 +287,12 @@ function consonantGuessHandler(currentGuess, currentTurnPlayer, e) {
 }
 
 function revealLetters(game) {
+  if(game.winner !== null) {//show full puzzle 
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').forEach((letter) => {
+      puzzle.countCorrectLetters(letter);
+    })
+    return;
+  }
   game.lettersGuessed.forEach((letter) => {
     puzzle.countCorrectLetters(letter);
   });

@@ -71,7 +71,7 @@ class Puzzle {
   }
 
   solvePuzzle(guess) {
-    if (guess === this.currentPuzzle.correct_answer.toLowerCase()) {
+    if (this.equalsIgnoreCase(guess,this.currentPuzzle.correct_answer)) {
       domUpdates.hideSolvePopup();
       domUpdates.yellCurrentSpin('CORRECT');
       setTimeout(domUpdates.yellCurrentSpin, 2000);
@@ -85,6 +85,15 @@ class Puzzle {
       setTimeout(domUpdates.yellCurrentSpin, 2000);
       return false;
     }
+  }
+
+  equalsIgnoreCase(a, b) {
+    if(a === null || b === null) return false;
+    return a.toUpperCase() === b.toUpperCase();
+  }
+
+  correctAnswer() {
+    return this.currentPuzzle.correct_answer;
   }
 }
 

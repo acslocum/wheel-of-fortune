@@ -14,7 +14,7 @@ class Game {
     this.lastPuzzle= {};
     this.winner = null;
     this.lettersGuessed = [];
-    this.currentSpin = 0
+    this.currentSpin = 0;
     this.resetPlayers();
   }
 
@@ -56,6 +56,10 @@ class Game {
       this.lastPuzzle = round.generatePuzzle();
       this.lettersGuessed = [];
       this.winner = null;
+      this.players.forEach(player => {
+        player.wallet = 0;
+      });
+
  //   }
   }
 
@@ -74,9 +78,9 @@ class Game {
     this.winner = this.playerIndex;
     //domUpdates.updateBankAccts(winner, this.playerIndex);
     //domUpdates.displayWinner(winner.name, winner.wallet);
-    this.players.forEach(player => {
-      player.wallet = 0;
-    });
+    //this.players.forEach(player => {
+    //  player.wallet = 0;
+    //});
   }
 
   endGame() {

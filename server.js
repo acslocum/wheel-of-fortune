@@ -40,7 +40,7 @@ server.listen(port, hostname, () => {
 });
 
 server.on('request', (req, res) => {
-    console.log(req.url);
+    //console.log(req.url);
     if (req.method === 'POST') {
         if(req.url === '/resetPlayers') {
             game.resetPlayers();
@@ -103,6 +103,7 @@ server.on('request', (req, res) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
+            res.end(JSON.stringify(scores));
         } else if (req.url.startsWith('/game')) {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
@@ -111,12 +112,8 @@ server.on('request', (req, res) => {
             res.end(JSON.stringify(game));
         } else if (req.url.startsWith('/newRound')) {
             let query = url.parse(req.url).query;
-            console.log(query);
             let params = querystring.parse(query);
-            console.log(JSON.stringify(params));
             if(params !== null && params.player1 !== undefined) {
-                console.log("not null params")
-                console.log(params.player1);
                 game.setNames(params.player1, params.player2, params.player3);
             }
             res.statusCode = 200;
@@ -162,7 +159,6 @@ server.on('request', (req, res) => {
         } else if(req.url.startsWith('/spin')) {
             let params = querystring.parse(url.parse(req.url).query);
             game.currentSpin = parseInt(params.spinValue);
-            console.log(game.currentSpin);
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(game));
         } else {

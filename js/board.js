@@ -18,5 +18,5 @@ function updateGameState() {
 
 while(true) {
     updateGameState();
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 250));
 }

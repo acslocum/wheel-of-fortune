@@ -13,7 +13,7 @@ Run `git clone https://github.com/b3an5/wheel-of-fortune.git` in your terminal t
 
 ![alt text](pics/game-pic.png)
 
-![alt text](pics/wheel-spin.gif)
+![alt text](pics/wheel-spin.gif)x
 
 ### Original Wireframe
 
@@ -35,14 +35,21 @@ Run `git clone https://github.com/b3an5/wheel-of-fortune.git` in your terminal t
 
 TODO
 /quitGame - dev complete
-new round player names - on board only (lose names?)
-bank account extra colons
+DONE new round player names - on board only (lose names?)
+DONE bank account extra colons
 reload to reset server - quit solves it??
-round number  - remove?
+DONE round number  - remove?
 vowel highlights ????
+board vowel highlights????
 next puzzle button -v done
-don't auto load next puzzle
-solve button turns to show the puzzle and correct and incorrect buttons
+DONE don't auto load next puzzle
+DONE solve button turns to show the puzzle and correct and incorrect buttons
+DONE solve button tells the board that it's solved
+DONE -hide after wrong or right
+DONE -right doesn't end it
+DONE board refresh 250
+DONE wheel of fortin
+DONE keep dollars until new puzzle
 DONE 1 red
 DONE 2 blue
 DONE 3 yellow

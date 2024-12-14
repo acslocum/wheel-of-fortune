@@ -1,0 +1,38 @@
+Starting a game
+Reload your browser to start a game, or hit the quit button on the bottom right.
+Play 3ish rounds before you kick people out, if there are more people wanting to play.
+
+Entering names
+Enter each player's name. If there are fewer than 3 players you'll have to use "lose a turn" to skip empty spots
+
+Playing
+
+Spin
+After the person spins, enter the $$ and hit the Spin button to make it official.
+
+Guess a letter
+Click a letter. It'll use whatever the spin is and score points (or move to the next person). If it seems like it isn't working, hit the spin button again.
+
+Buy a vowel
+Vowels cost 250. Hit the vowel button. Pick the vowel they want. Sometimes you have to hit the vowel button twice. Sorry.
+
+Puzzles
+If the puzzle has a word that doesn't fit on the first line, it'll wrap down to the second line.
+e.g.
+We love fortr
+ess so much
+
+Lose a turn / Bankrupt
+If the player lands on one of these, hit the appropriate button. It will move to the next player.
+
+Spin again
+The contestant can take a Wheel of Fortin sticker from the board. After the game is done, put more stickers down.
+
+Solve
+Hit the solve button, that will give you the answer to the puzzle and Correct & Incorrect buttons. DON'T SAY THE ANSWER! If the person is correct, their score will go in the bank on the lower right. IF they are incorrect, they'll lose their turn.
+
+New Puzzle
+If no one is getting it or you don't like the puzzle or whatever, I'm not your boss. "New puzzle" will start a new round.
+
+Quit
+This will go back to entering new names. All previous scores and bank will be gone.
