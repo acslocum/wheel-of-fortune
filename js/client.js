@@ -17,7 +17,7 @@ let VOWEL_COST = 250;
 $('.start-button').on('click', init);
 $('.quit').on('click', quitHandler);
 $('.spin-button').on('click', spinHandler);
-$('.solve-button').on('click', domUpdates.displaySolvePopup);
+$('.solve-button').on('click', displaySolvePopup);
 $('.solve-correct-button').on('click', solveCorrectHandler);
 $('.solve-wrong-button').on('click', solveWrongHandler);
 $('.spin-text').on('click', spinHandler);
@@ -47,6 +47,10 @@ function get(url, data=null) {
     }
   });
   return responseData;
+}
+
+function displaySolvePopup() {
+  domUpdates.displaySolvePopup(puzzle.correctAnswer());
 }
 
 function resetPlayers() {

@@ -280,7 +280,8 @@ const domUpdates = {
     })
   },
 
-  displaySolvePopup() {
+  displaySolvePopup(solution) {
+    $('.solution').text(solution);
     $('.solve-popup').css('display', 'flex');
     $('.solve-input').focus();
   },
