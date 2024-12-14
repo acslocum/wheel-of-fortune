@@ -1,4 +1,4 @@
-import { get, newPlayerTurn, populatePuzzleSquares, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters, resetPuzzleSquares } from "./client.js";
+import { get, newPlayerTurn, populatePuzzleSquares, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters, resetPuzzleSquares, showGuessedLetters } from "./client.js";
 
 
 let game;
@@ -13,6 +13,7 @@ function updateGameState() {
     updateNames(game);
     updateCurrentSpin(game);
     enableLetters();
+    showGuessedLetters(game);
     endRoundBoard(game.players);
 }
 

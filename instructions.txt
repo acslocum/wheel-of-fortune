@@ -14,7 +14,7 @@ Guess a letter
 Click a letter. It'll use whatever the spin is and score points (or move to the next person). If it seems like it isn't working, hit the spin button again.
 
 Buy a vowel
-Vowels cost 250. Hit the vowel button. Pick the vowel they want. Sometimes you have to hit the vowel button twice. Sorry.
+Vowels cost 250. Hit the vowel button. Pick the vowel they want.
 
 Puzzles
 If the puzzle has a word that doesn't fit on the first line, it'll wrap down to the second line.
@@ -30,9 +30,27 @@ The contestant can take a Wheel of Fortin sticker from the board. After the game
 
 Solve
 Hit the solve button, that will give you the answer to the puzzle and Correct & Incorrect buttons. DON'T SAY THE ANSWER! If the person is correct, their score will go in the bank on the lower right. IF they are incorrect, they'll lose their turn.
+The winner's score gets added to the bank in the lower right.
 
 New Puzzle
 If no one is getting it or you don't like the puzzle or whatever, I'm not your boss. "New puzzle" will start a new round.
 
 Quit
 This will go back to entering new names. All previous scores and bank will be gone.
+
+
+Troubleshooting:
+Wong person is highlighted!
+-Hit "lose a turn" to get back to the right person
+
+I accidentally hit Solve!
+-Pick "Wrong" and hit "lose a turn" twice to go back to their turn
+
+The letters aren't highlighted!
+-Make sure you enter the $ and hit "Spin"
+
+I can't pick a vowel!
+-Vowels cost $250 - does the person have enough $
+
+I put in the wrong amount and the score is wrong!
+-Be a better Pat Sajak next time.

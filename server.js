@@ -89,7 +89,7 @@ server.on('request', (req, res) => {
                     //res.writeHead(200, {'Content-Type': 'text/html'});
                     fs.createReadStream(pathname).pipe(res);
                 } else {
-                    console.log(req.url);
+                    //console.log(req.url);
                     res.writeHead(404, {'Content-Type': 'text/html'});
                     res.end('404 Not Found\n');
                 }
@@ -108,7 +108,6 @@ server.on('request', (req, res) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Keep-Alive', 'timeout=0');
-            //console.log(JSON.stringify(game));
             res.end(JSON.stringify(game));
         } else if (req.url.startsWith('/newRound')) {
             let query = url.parse(req.url).query;

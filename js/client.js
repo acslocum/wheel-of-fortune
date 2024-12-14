@@ -96,6 +96,7 @@ function quitHandler() {
 function spinHandler() {
   var spinValue = domUpdates.updateCurrentSpin();
   domUpdates.enableLetters();
+  domUpdates.tempDisableVowels();
   game = get('/spin', { 'spinValue': spinValue });
 }
 
@@ -123,6 +124,8 @@ function loseATurnHandler() {
 
 function bankruptHandler() {
   game = get('/bankrupt');
+  bankrupt.play();
+  domUpdates.displayNames(game.players, game.playerIndex);
   domUpdates.newPlayerTurn(game.players, game.playerIndex);
   domUpdates.disableKeyboard();
 }
@@ -319,4 +322,16 @@ function updateCurrentSpin(game) {
   domUpdates.setCurrentSpin(game.currentSpin);
 }
 
-export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters, resetPuzzleSquares};
+function showGuessedLetters(game) {
+  let notGuessed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').filter((letter) => {
+    return !game.lettersGuessed.includes(letter);
+  });
+  notGuessed.forEach((letter) => {
+    domUpdates.showLetter(letter.toUpperCase(),true);
+  });
+  game.lettersGuessed.forEach((letter) => {
+    domUpdates.showLetter(letter.toUpperCase(),false);
+  });
+}
+
+export {get, populatePuzzleSquares, newPlayerTurn, revealLetters, updateNames, updateCurrentSpin, endRoundBoard, updateCategory, enableLetters, resetPuzzleSquares, showGuessedLetters};

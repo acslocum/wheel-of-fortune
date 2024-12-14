@@ -39,8 +39,8 @@ DONE new round player names - on board only (lose names?)
 DONE bank account extra colons
 reload to reset server - quit solves it??
 DONE round number  - remove?
-vowel highlights ????
-board vowel highlights????
+DONE vowel highlights ????
+DONE board vowel highlights????
 next puzzle button -v done
 DONE don't auto load next puzzle
 DONE solve button turns to show the puzzle and correct and incorrect buttons

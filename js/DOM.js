@@ -144,6 +144,21 @@ const domUpdates = {
     }
   },
 
+  showLetter(character, isEnabled) {
+    let keyboardLetters = Array.from($('.keyboard-letters'));
+    
+    keyboardLetters.forEach(letter => {
+      let letterText = $(letter).text();
+      if (letterText.toUpperCase() === character) {
+        if(isEnabled) {
+          $(letter).removeClass('disabled');
+        } else {
+          $(letter).addClass('disabled');
+        }
+      }
+    });
+  },
+
   revealCorrectLetters(box) {
     $(box).css('opacity', 1);
   },
@@ -183,11 +198,12 @@ const domUpdates = {
     let keyboardLetters = Array.from($('.keyboard-letters'));
     keyboardLetters.forEach(letter => {
       if ($(letter).hasClass('vowel') &&
-       !$(letter).hasClass('vowel-disabled')) {
-        $(letter).toggleClass('active-vowel');
+       /*!$(letter).hasClass('temp-disabled') &&*/ !$(letter).hasClass('vowel-disabled')) {
+        $(letter).addClass('active-vowel');
       } else {
         if (!$(letter).hasClass('disabled')) {
           $(letter).addClass('temp-disabled');
+          $(letter).removeClass('active-vowel');
         }
       }
     });
@@ -195,7 +211,9 @@ const domUpdates = {
 
   disableGuessedVowel(event) {
     if ($(event.target).hasClass('vowel')) {
-      $(event.target).toggleClass('vowel-disabled');
+      $(event.target).addClass('vowel-disabled');
+      $(event.target).addClass('temp-disabled');
+      $(event.target).removeClass('active-vowel');
     }
   },
 
@@ -233,7 +251,22 @@ const domUpdates = {
       if ($(letter).hasClass('temp-disabled')) {
         $(letter).toggleClass('temp-disabled');
       }
+      /*if ($(letter).hasClass('vowel')) {
+        $(letter).addClass('temp-disabled');
+        $(letter).removeClass('active-vowel');
+      }*/
+
     });
+  },
+
+  tempDisableVowels() {
+    let keyboardLetters = Array.from($('.keyboard-letters'));
+    keyboardLetters.forEach(letter => {
+      if ($(letter).hasClass('vowel')) {
+        $(letter).addClass('temp-disabled');
+        $(letter).removeClass('active-vowel');
+      }
+    })
   },
 
   disableKeyboard() {
@@ -241,6 +274,8 @@ const domUpdates = {
     keyboardLetters.forEach(letter => {
       if (!$(letter).hasClass('vowel')) {
         $(letter).toggleClass('temp-disabled');
+      } else {
+        $(letter).removeClass('active-vowel');
       }
     })
   },
